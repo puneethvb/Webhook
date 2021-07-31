@@ -1,0 +1,13 @@
+<template>
+    <lightning-card> Table styling in Data table.
+        <template if:true={tableData}>
+        <lightning-datatable
+                key-field=Id
+                data={tableData}
+                columns={columns}
+                >
+        </lightning-datatable>
+    </template>
+    </lightning-card>  
+ 
+</template>

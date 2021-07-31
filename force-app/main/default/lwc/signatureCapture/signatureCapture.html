@@ -1,0 +1,24 @@
+<template>
+    <lightning-card class="slds-alighn_absolute-center" title="Capture Signature using HTML Canvas"
+     icon-name="custom:custom47">
+        <div class="c-container">
+            <div style="text-align: center;">
+                <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+                    Sign here
+                </h2>
+                <p class="slds-m-bottom_small">
+                    <canvas name ="can" style="border: 2px solid rgb(136, 135, 135); background: transparent"></canvas>
+                </p>
+                <p class="slds-m-bottom_small">
+                    <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
+                    <lightning-button label="Clear" variant="brand" onclick={handleClear} class="slds-m-left_small"></lightning-button>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+    
+</template>

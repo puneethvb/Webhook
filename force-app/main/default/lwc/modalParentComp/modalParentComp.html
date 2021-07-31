@@ -1,0 +1,14 @@
+<template>
+    <template if:true={displayModal}>
+        HAHAHAHAHHA
+    </template>
+    <div class="slds-var-m-around_medium">
+        <lightning-card title="Simple Event" icon-name="custom:custom15">
+            <lightning-button label="click" variant="success" onclick={handleClick}></lightning-button>
+        </lightning-card>
+        <template if:true={displayModal}>
+            <c-modal-child-comp header="Event Example" content="This is a smaple" onclose={handleCloseModal}></c-modal-child-comp>
+        </template>
+    </div>
+
+</template>

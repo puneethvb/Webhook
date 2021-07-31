@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-p-around_medium slds-card">
+        <h2 class="slds-m-around_bottom heading">Stop Watch</h2>
+        <div class="timer">{timer}</div>
+        <div class ="slds-p-around_medium">
+            <lightning-button-group>
+                <lightning-button label="Start" variant = "success" onclick={actionHandler} value="start"></lightning-button>
+                <lightning-button label="Stop" variant = "destructive" onclick={actionHandler} value="stop"></lightning-button>
+                <lightning-button label="Reset" variant = "brand" onclick={actionHandler} value="reset"></lightning-button>
+            </lightning-button-group>
+        </div>   
+    </div>
+    
+     
+</template>

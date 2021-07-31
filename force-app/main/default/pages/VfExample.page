@@ -1,0 +1,24 @@
+<apex:page controller="VfExampleCont">
+    
+        <P>
+            <apex:outputText value="{!state}" id="showState"/>
+        </P>
+
+        
+
+        <apex:outputPanel onclick="MethodOneInJS('yes')" styleClass="btn">
+            Click me
+        </apex:outputPanel>
+    <apex:form >
+            <apex:actionFunction name="MethodOneInJS" action="{!actFun}" reRender="showState">
+                <apex:param name="first" assignTo="{!state}" value=""/>
+            </apex:actionFunction>
+            <p>
+                    <apex:outputText value="{!counter}" id="counter"/>
+                    <apex:actionPoller action="{!increaseCount}" reRender="counter" interval="10"/>
+            </p>
+
+    </apex:form>
+    <apex:iframe src="https://www.liverpoolfc.com/" scrolling="true"/>
+
+</apex:page>

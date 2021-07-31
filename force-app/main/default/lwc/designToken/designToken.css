@@ -1,0 +1,23 @@
+.orangeButton{
+
+    --sds-c-button-brand-color-background: orange;
+    --sds-c-button-brand-color-border : orange;
+    --sds-c-button-brand-font-weight: bold;
+
+}
+
+.blackButton{
+
+    --sds-c-button-brand-color-background: black;
+    --sds-c-button-brand-color-border : black;
+
+}
+.textStyle{
+    color : var(--lwc-colorTextError);
+    font-weight: var(--lwc-fontWeightBold);
+    font-size:medium;
+}
+:host{
+    --cus-background-color : rgba(0, 255, 76, 0.733);
+
+}

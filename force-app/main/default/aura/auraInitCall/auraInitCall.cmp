@@ -1,0 +1,8 @@
+<aura:component controller="LWCUtil" implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:lightningQuickActionwithoutHeader" 
+                access="global">
+    <aura:attribute name="String1" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    Test
+    {!v.String1}
+
+</aura:component>

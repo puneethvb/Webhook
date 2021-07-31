@@ -1,0 +1,21 @@
+.parent{
+    background-color:red;
+    position:relative;
+    
+}
+.child1{
+    background-color:yellow;
+    position:absolute;
+}
+
+.child2{
+    background-color:green;
+    position:absolute;
+    right:100px;
+}
+
+.child3{
+    background-color:orange;
+    position:absolute;
+    left:100px;
+}

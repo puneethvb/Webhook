@@ -1,0 +1,4 @@
+<design:component >
+    <design:attribute name="callCenterName" datasource="Takata Recall,DPIC,NFC,NCI,Others" default="Others" />
+
+</design:component>

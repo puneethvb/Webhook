@@ -1,0 +1,62 @@
+<aura:component >
+    <aura:attribute name = "items" type = "Camping_Item__c[]"/>
+    <aura:attribute name = "newItem" type = "Camping_Item__c"
+                    default = "{'sobjectType': 'Camping_Item__c',
+                                'Name' : '',
+                                'Packed__c' : false,
+                                'Price__c':0,
+                                'Quantity__c':0
+                               }"/>
+    <c:campingHeader/>
+    <lightning:layout>
+        <lightning:layoutItem padding = "around-small" size = "6">
+            <div area-labelledby="newitemform">
+                <fieldset class = "slds-box slds-theme--default slds-container--small">
+                    <legend id = "newitemform" class="slds-text-heading--small slds-p-vertical--medium">
+                        Add Camping Item
+                    </legend>
+                    <form class="slds-form--stacked">
+                        <lightning:input aura:id = "itemform" label = "Item Name"
+                                         name = "itemname"
+                                         value = "{!v.newItem.Name}"
+                                         required = "true"
+                                         />
+                        <lightning:input aura:id = "itemform" type = "number" label = "Quantity"
+                                         name = "itemquantity"
+                                         value = "{!v.newItem.Quantity__c}"
+                                         min = "1"
+                                         step = "1"
+                                         messageWhenRangeUnderflow="Quantity should atleast be 1."/>
+                        
+                        <lightning:input aura:id = "itemform" type = "number" label = "Price"
+                                         formatter = "currency"
+                                         min = "0.1"
+                                         step = "0.01"
+                                         name = "itemprice"
+                                         value = "{!v.newItem.Price__c}"
+                                         messageWhenRangeUnderflow="Enter an amount that's at least $0.10."/>
+                        
+                        <lightning:input aura:id = "itemform" type = "checkbox" label = "Packed?"
+                                         name = "itempacked"
+                                         checked = "{!v.newItem.Packed__c}"/>
+                        <lightning:button label = "Create Camping Item"
+                                          class = "slds-m-top--medium"
+                                          variant = "brand"
+                                          onclick = "{!c.clickCreateItem}"/>
+                        
+                        
+                    </form>
+                </fieldset>
+            </div>
+        </lightning:layoutItem>
+    
+    </lightning:layout>
+    <lightning:card title = "Camping List">
+        <p class = "slds-p-horizontal--small">
+            <aura:iteration items = "{!v.items}" var = "item">
+                <c:campingListItem item = "{!item}"/>
+            </aura:iteration>
+        </p>
+    </lightning:card>
+    
+</aura:component>

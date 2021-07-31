@@ -1,0 +1,14 @@
+<template>
+
+    <lightning-card title="Spinner">
+
+    <lightning-button label="Show Spinner" onclick={displaySpinner}></lightning-button>
+    <template if:true={showSpinner}>
+        <c-loader size="small" spinner-text="I am a Spinner" variant="base"></c-loader>
+        
+    </template>  
+</lightning-card>  
+<template if:true={showSpinner}>
+    <lightning-button label="Stop Spinner" onclick={hideSpinner}></lightning-button>
+</template>
+</template>

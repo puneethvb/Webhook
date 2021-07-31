@@ -1,0 +1,8 @@
+.boldInput{
+    --sds-c-input-color-border : red;
+}
+
+.borderStyle{
+    border-style: dotted;
+    border-width:thin;
+}

@@ -1,0 +1,16 @@
+<apex:page showHeader="false" controller="DisplayPDFController" renderAs="pdf"
+    applyHtmlTag="false" cache="true" readOnly="true">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+            <style>
+                @page{
+                    size: a4 portrait,
+                    padding-left : 2px,
+                    padding-right : 2px
+                }
+            </style>
+        </meta>
+    </head>
+    <apex:outputText value="{!displayText}" escape="false"></apex:outputText>
+
+</apex:page>

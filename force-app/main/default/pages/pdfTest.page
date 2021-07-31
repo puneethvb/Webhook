@@ -1,0 +1,5 @@
+<apex:page renderAs="PDF" standardController="Account">
+    <apex:pageBlock >
+        {!Account.Name}
+    </apex:pageBlock>
+</apex:page>

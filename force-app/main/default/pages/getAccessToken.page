@@ -1,0 +1,36 @@
+<apex:page controller="myRESTAPIcallOut">
+    <apex:form >
+            <apex:pageBlock >
+                    <apex:pageBlockSection >
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="Client id"/>
+                                <apex:inputText value="{!clientId}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="Client Secret"/>
+                                <apex:inputText value="{!clientSecret}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="User Name"/>
+                                <apex:inputText value="{!username}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="Password"/>
+                                <apex:inputText value="{!password}"/>
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                        <apex:pageBlockButtons >
+                            <apex:commandButton value="Get Access Token" action="{!retriveAccessToken}" reRender="token"/>
+                        </apex:pageBlockButtons>
+        
+            </apex:pageBlock>
+            <apex:pageBlock id="token">
+                {!accessToken}
+        
+            </apex:pageBlock>
+
+    </apex:form>
+    
+
+
+</apex:page>

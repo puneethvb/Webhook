@@ -1,0 +1,39 @@
+@import 'c/sharedCSS3';
+.marginAuto{
+    margin:auto;
+}
+
+.profilePic{
+    border-radius: 50%;
+    height : 200px;
+    width : 200px;  
+}
+
+.link{
+    color : var(--cus-resume-link-color);
+    font-size: 1rem;
+}
+
+.nameHeading{
+    color : var(--cus-resume-link-color);
+    font-size: 2.25rem;
+    font-weight :400;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+    line-height: 1.25;
+}
+
+.roleHeading{
+    color : var(--cus-resume-header-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+@media only screen and (max-width : 600px){
+    .mobileTextCenter{
+        text-align: center;
+    }
+}
+.smallFont{
+    font-size:1rem;
+}

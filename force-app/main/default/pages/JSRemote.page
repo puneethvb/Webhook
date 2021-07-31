@@ -1,0 +1,26 @@
+<apex:page controller="remoteAction">
+    <script type="text/javascript">
+    function getRemoteAcc(){
+        var accName = document.getElementById('accName').value;
+        alert(accName);
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.remoteAction.findAccount}',
+            accName,
+            function(result,event){
+                alert(event.status);
+                if(event.status){
+                    
+                    document.getElementById("{!$Component.block.accInd}").innerHTML = result.Industry;
+                }
+            },{escape:true}
+        );
+    }
+    </script>
+
+    <input id="accName" type="text"/>
+    <button onclick="getRemoteAcc()"> Get Me </button>
+    <div id="errorSec"></div>
+    <apex:pageBlock id="block">
+        <apex:outputText id="accInd"/>
+    </apex:pageBlock>
+</apex:page>

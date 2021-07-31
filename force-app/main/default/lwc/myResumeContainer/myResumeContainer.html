@@ -1,0 +1,21 @@
+<template>
+    <div class="wrapper">
+        <div class="slds-var-p-around_medium headerStyle">
+            <c-my-resume-header profile-image ={resumeData.IMAGE} user-details={resumeData.USER_DETAILS} social-links={resumeData.SOCIAL_DATA}>
+            </c-my-resume-header>
+        </div>
+        <div class="slds-var-p-around_medium">
+            <c-my-resume-summary details={resumeData.SUMMARY}></c-my-resume-summary>
+        </div>
+        <div class="slds-var-p-around_medium">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_9-of-12 slds-large-size_9-of-12">
+                    <c-my-resume-experience></c-my-resume-experience>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12">Test Colo 3</div>
+            </div>
+
+        </div>
+    </div>
+    
+</template>

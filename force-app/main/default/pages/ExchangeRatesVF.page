@@ -1,0 +1,10 @@
+<apex:page controller="ExchangeRatesController">
+
+   <apex:pageBlock title="Currency Rates">
+      <apex:pageBlockTable value="{!listOfRates}" var="Rate">
+      <apex:column value="{!Rate.Name}"/>
+      <apex:column value="{!Rate.Conversion_Rate__c}"/>
+      </apex:pageBlockTable>
+   </apex:pageBlock>
+	
+</apex:page>

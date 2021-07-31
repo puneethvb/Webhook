@@ -1,0 +1,29 @@
+<template>
+
+    <lightning-card title="Account/Case Search">
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-large-size_1-of-4 slds-size_1-of-1">
+                <lightning-button variant="base" label="customize search" class="slds-float_right slds-var-m-right_medium"></lightning-button>
+                <div class="borderStyle slds-var-m-top_x-large slds-var-m-left_small">
+                    <span class="slds-text-title_bold slds-var-m-around_small">Search Parameters</span>
+                    <div class="slds-var-p-around_small">
+                        <template for:each={searchParams} for:item="param">
+                            <lightning-input key={param.label} label={param.label} type={param.type} name={param.label}></lightning-input>
+                        </template>
+                    </div>
+                    <span class="slds-text-title_bold slds-var-m-around_small">Owner/Case Search</span>
+                    <div class="slds-var-p-around_small">
+                        <template for:each={ownerParams} for:item="param">
+                            <lightning-input key={param.label} label={param.label} type={param.type} name={param.label}></lightning-input>
+                        </template>
+                    </div>                   
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-4">
+                <lightning-button variant="base" label="customize Columns" class="slds-float_right slds-var-p-right_medium"></lightning-button>            
+            </div>
+        </div>
+    </lightning-card>
+    
+</template>

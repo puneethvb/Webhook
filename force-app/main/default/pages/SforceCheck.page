@@ -1,0 +1,25 @@
+<apex:page >
+    <apex:includeScript value="/soap/ajax/37.0/connection.js"/>
+    <apex:includeScript value="/support/console/37.0/integration.js"/>
+    <script type="text/javascript">
+        sforce.connection.sessionId = '{!$Api.Session_ID}';
+        var caseResult = sforce.connection.query("Select id, caseNumber, Subject from case LIMIT 5" );
+        var  caseRecords = caseResult.getArray("records");
+        console.log(caseRecords[0]);
+        var cas = caseRecords[0];
+        cas.Subject = 'I am from SFORCE';
+        var updRes = sforce.connection.update([cas]);
+        console.log(cas);
+        var agentConsoleURL = '/' +cas.Id;
+        console.log(agentConsoleURL);
+        sforce.console.openPrimaryTab(null, agentConsoleURL, true, 'Maintenance Req', 'salesforceTab');
+        //console.log(isSuccess);
+        function openPrimaryTab(v1, v2, v3, v4) {
+            console.log('here');
+            sforce.console.openPrimaryTab(v1, v2, v3, v4);
+            console.log('after');
+        } 
+    </script>
+    <a href="#" onClick="openPrimaryTab(null,agentConsoleURL,true,'example');return false">Open a primary tab</a>
+
+</apex:page>

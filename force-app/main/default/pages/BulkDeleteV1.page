@@ -1,0 +1,49 @@
+<apex:page controller="BulkDeleteControllerV1">
+
+  <apex:sectionHeader title="Bulk Delete" subtitle="SObjects"/>
+
+  <apex:form >
+  <apex:pageBlock >
+
+  <apex:pageBlockButtons location="both">
+
+   <apex:commandButton value="Delete Selected" action="{!deleteSelected}" onclick="if(!confirm('Are You Sure')) return false;"/>
+   <apex:pageMessages />
+
+  </apex:pageBlockButtons>
+
+  <apex:pageBlockSection columns="1">
+
+    <apex:outputPanel >
+
+      <apex:outputLabel value="Enter SOQL Command : " for="Command"/>
+      &nbsp;
+      <apex:inputText value="{!selectedString}" id="Command"/>
+      &nbsp;
+      <apex:commandButton value="Go" action="{!executeselect}"/><br/>
+      &nbsp;
+
+    </apex:outputPanel>
+
+    <apex:pageBlockTable value="{!sObjWrapperList}" var="item">
+
+      <apex:column headerValue="Delete" >
+
+        <apex:inputCheckbox value="{!item.deleteThis}"/>
+      </apex:column>
+
+       <apex:column headerValue="Name" >
+
+        <apex:outputText value="{!item.name}"/>
+      </apex:column>
+
+    </apex:pageBlockTable>
+
+  </apex:pageBlockSection>
+
+  </apex:pageBlock>
+
+  </apex:form>
+
+	
+</apex:page>

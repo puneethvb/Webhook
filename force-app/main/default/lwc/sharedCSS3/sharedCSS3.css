@@ -1,0 +1,12 @@
+.orangeButtons{
+    --sds-c-button-brand-color-background : rgba(199, 69, 17, 0.747);
+    --sds-c-button-brand-color-border : rgba(199, 69, 17, 0.747);
+}
+
+:host{
+    --cus-resume-header-background : #060b1b;
+    --cus-resume-header-color :#7081b9;
+    --cus-resume-link-color : #6c7a9c;
+    --cus-resume-summary-color: #1a3179;
+
+}

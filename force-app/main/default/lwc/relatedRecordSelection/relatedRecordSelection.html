@@ -1,0 +1,10 @@
+<template>
+    <lightning-card icon-name="standard:apps" title="Related Records Selection">
+        <lightning-radio-group label="Accounts"  value={selectedAcc} class="slds-m-left_small"
+                                options={acclIst} type="radio" onchange={onAccChange}>
+        </lightning-radio-group>
+        <lightning-button label="Save" onclick={SaveRecs}>
+        </lightning-button>
+    </lightning-card>
+    
+</template>

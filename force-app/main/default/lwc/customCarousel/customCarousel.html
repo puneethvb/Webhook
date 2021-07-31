@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-is-relative container" style={maxWidth}>
+        <template for:each={slides} for:item="slide">
+            <div key={slide.slideIndex} class={slide.cardClass}>
+                <div class="slide-numbers">{slide.slideIndex}/{slides.length}</div>
+                <img src={slide.image}/>
+                <div class="text-section slds-p-around_medium">
+                    <h3 class="slds-text-heading_large">{slide.header}</h3>
+                    <div class="slds-text-heading_small">{slide.text}</div>
+                </div>
+            </div>            
+        </template>
+        <br>
+        <br>
+        <a class="prev" onclick={handleBack}>&#10094;</a>
+        <a class="next" onclick={handleForward}>&#10095;</a>
+        <!--<lightning-icon icon-name="chevronleft"  onclick={handleBack} variant="success" size="large"></lightning-icon>
+        <lightning-icon icon-name="chevronright" class="next" onclick={handleForward} variant="warning"></lightning-icon>-->
+    </div>
+    <div class="slds-p-around_medium slds-text-align_center">
+        <template for:each={slides}  for:item="slide">
+            <span key={slide.slideIndex} class={slide.dotClass} data-id={slide.slideIndex} onclick={currentSlide}>
+            </span>
+        </template>
+    </div>
+</template>

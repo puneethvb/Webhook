@@ -1,0 +1,8 @@
+.load::after{
+    position : absolute;
+    width : 100%;
+    text-align: center;
+    font-weight:bold;
+    content:attr(data-text);
+    top:calc(50% + 1.5rem);
+}

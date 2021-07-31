@@ -1,0 +1,68 @@
+<template>
+    <lightning-card title="Unlimited Pagination" icon-name="custom:custom23">
+        <table>
+            <tr>
+                <td style="padding: 10px;"><lightning-input type="search" name="name" class="accname" label="Enter Account Name" placeholder="Search..."></lightning-input></td>
+                <td style="padding-top: 22px;">
+                    <lightning-button-group>
+                        <lightning-button label="Search" variant="neutral" onclick={handleSearch}></lightning-button>
+                        <lightning-button label="Show All" variant="neutral" onclick={handleShowAll}></lightning-button>
+                    </lightning-button-group>
+                </td>
+                <td style="padding-top: 22px;"><lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button></td>
+            </tr>
+        </table>
+        <div class="slds-m-around_medium">
+            <template if:true={accounts}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped slds-table_col-bordered">
+                    <thead>
+                        <tr class="slds-text-heading_label">
+                            <th scope="col" style="width: 3.25rem;">
+                                <lightning-input type="checkbox"></lightning-input>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Name">Name</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Account Reference">Account Reference</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="site">Site</div>
+                            </th>
+                        </tr>
+                    </thead>
+                        
+                    <tbody>
+                        <template for:each={accounts} for:item="acc">
+                            <tr key={acc.Id}>
+                                <td>
+                                    <lightning-input type="checkbox" name={acc.Id} checked={acc.isCheked} onchange={handleRecordSelection}></lightning-input>
+                                </td>
+                                <td>
+                                    <div class="slds-cell-wrap" title={acc.Name}>{acc.Name}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-cell-wrap" title={acc.AccountReference}>{acc.AccountReference}</div>
+                                </td>
+                                <td>
+                                    <lightning-input type="text" name={acc.Id} style="margin-top: -4%;" value={acc.site} onchange={handleSiteChange}></lightning-input>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+        </div>
+        <lightning-layout class="slds-m-around_small">
+            <div class="slds-align_absolute-center">
+                <lightning-layout-item>
+                    <lightning-button label="previous" icon-name="utility:chevronleft" onclick={handlePrevious} disabled={isPreviousDisabled}></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="grow" class="slds-p-left_medium"></lightning-layout-item>
+                <lightning-layout-item>
+                    <lightning-button label="Next" onclick={handleNext} icon-name="utility:chevronright" icon-position="right"></lightning-button>
+                </lightning-layout-item>
+            </div>
+        </lightning-layout>
+    </lightning-card>    
+</template>

@@ -1,0 +1,12 @@
+<apex:page controller="AuraEnabledController">
+    <!--<apex:pageBlock title="Page Block">
+        <apex:pageBlockTable value="{!wrappers}" var="item">
+            <apex:column value="{!item.count}"/>
+            <apex:column value="{!item.name}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>-->
+    <apex:repeat value="{!wrappers}" var="item">
+        <apex:outputText value="{!item.count}"/>
+        <apex:outputText value="{!item.name}"/> <br/>
+    </apex:repeat>
+</apex:page>

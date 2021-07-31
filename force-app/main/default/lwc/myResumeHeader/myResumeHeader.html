@@ -1,0 +1,45 @@
+<template>
+    <header>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12 mobileTextCenter">
+                <img src={profileImage} alt="profile Pic" class="profilePic"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                <div class="nameHeading mobileTextCenter">{userDetails.name}</div>
+                <div class="roleHeading mobileTextCenter">{userDetails.role}</div>
+            
+                <ul class="smallFont">
+                    <li class="slds-var-m-bottom_small">
+                        <a href={emailLink} class="link">
+                            <lightning-icon icon-name="utility:email" alternative-text="Email" size="x-small"
+                                title="email" class="slds-var-m-right_small">
+                            </lightning-icon>
+                            {userDetails.email}
+                        </a>
+                    </li>
+                    <li class="slds-var-m-bottom_small">
+                        <a href={phoneLink} class="link">
+                            <lightning-icon icon-name="utility:dialing" alternative-text="phone" size="x-small"
+                                title="phone" class="slds-var-m-right_small">
+                            </lightning-icon>
+                            {userDetails.phone}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12">
+                <ul class="smallFont">
+                    <template for:each={socialLinks} for:item="item">
+                        <li class="slds-var-m-bottom_small" key={item.type}>
+                            <a href={item.link} class="link" target="_blank">
+                                <img src={item.icon} alt={item.type} width="20px" class="slds-var-m-right_small"/>
+                                <span>{item.label}</span>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+</template>
