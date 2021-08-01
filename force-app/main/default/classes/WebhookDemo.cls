@@ -8,38 +8,46 @@ global with sharing class WebhookDemo {
         try {
             RestRequest request = RestContext.request;
             RestResponse response = RestContext.response;
-
-            JSONParser parser = JSON.createParser(request.requestBody.toString()); 
             List<CommitClass> commits = new List<CommitClass>();
             String repoName;
             List<Git_Hub_Webhook__c> webhooks = new List<Git_Hub_Webhook__c>();
-            while(parser.nextToken()!=null){
-                if(parser.getCurrentToken() == JSONToken.FIELD_NAME && parser.getText()=='full_name'){
-
-                    system.debug('Inside full name');
-                    
-                    parser.nextToken();
-                    
-                    repoName = parser.getText();
-                    system.debug('repoName: '+repoName);
-                }
-                if(parser.getCurrentToken()==JSONToken.FIELD_NAME && parser.getText()=='commits'){
-                    System.debug('inside commits');
-                    //System.debug(parser.nextToken());
-                    //system.debug('next token: '+parser.nextToken());
-                    if(parser.nextToken()==JSONToken.START_ARRAY){
-                        System.debug('inside start array');
-                        while(parser.nextToken()!= JSONToken.END_ARRAY){
-                            system.debug('current token '+parser.getCurrentToken());
-                            if(parser.getCurrentToken()== JSONToken.START_OBJECT){
-                                System.debug('inside Start Object');
-                                commits.add((CommitClass)parser.readValueAs(CommitClass.class)) ;
-                                parser.skipChildren();
+            String incomingHashValue = request.headers.get('X-Hub-Signature-256');
+            Blob hmac = Crypto.generateMac('hmacSHA256',request.requestBody,Blob.valueOf('puneethswebhook'));
+            String hmacHex = 'sha256='+EncodingUtil.convertToHex(hmac);
+            system.debug(hmacHex);
+            system.debug(incomingHashValue);
+            if(hmacHex == incomingHashValue){
+                JSONParser parser = JSON.createParser(request.requestBody.toString()); 
+                while(parser.nextToken()!=null){
+                    if(parser.getCurrentToken() == JSONToken.FIELD_NAME && parser.getText()=='full_name'){
+    
+                        system.debug('Inside full name');
+                        
+                        parser.nextToken();
+                        
+                        repoName = parser.getText();
+                        system.debug('repoName: '+repoName);
+                    }
+                    if(parser.getCurrentToken()==JSONToken.FIELD_NAME && parser.getText()=='commits'){
+                        System.debug('inside commits');
+                        //System.debug(parser.nextToken());
+                        //system.debug('next token: '+parser.nextToken());
+                        if(parser.nextToken()==JSONToken.START_ARRAY){
+                            System.debug('inside start array');
+                            while(parser.nextToken()!= JSONToken.END_ARRAY){
+                                system.debug('current token '+parser.getCurrentToken());
+                                if(parser.getCurrentToken()== JSONToken.START_OBJECT){
+                                    System.debug('inside Start Object');
+                                    commits.add((CommitClass)parser.readValueAs(CommitClass.class)) ;
+                                    parser.skipChildren();
+                                }
                             }
                         }
                     }
                 }
+
             }
+            
             System.debug(commits.size());
             if(!commits.isEmpty()){
                 for(CommitClass commitClass : commits){
