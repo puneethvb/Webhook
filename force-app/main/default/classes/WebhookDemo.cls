@@ -15,23 +15,29 @@ global with sharing class WebhookDemo {
             List<Git_Hub_Webhook__c> webhooks = new List<Git_Hub_Webhook__c>();
             while(parser.nextToken()!=null){
                 if(parser.getCurrentToken() == JSONToken.FIELD_NAME && parser.getText()=='full_name'){
+
+                    system.debug('Inside full name');
                     
                     parser.nextToken();
                     
                     repoName = parser.getText();
+                    system.debug('repoName: '+repoName);
                 }
                 if(parser.getCurrentToken()==JSONToken.FIELD_NAME && parser.getText()=='commits'){
+                    System.debug('inside commits');
                     parser.nextToken();
                     if(parser.nextToken()==JSONToken.START_ARRAY){
+                        System.debug('inside start array');
                         while(parser.nextToken()!=null){
                             if(parser.getCurrentToken()== JSONToken.START_OBJECT){
+                                System.debug('inside Start Object');
                                 commits.add((CommitClass)parser.readValueAs(CommitClass.class)) ;
                             }
                         }
                     }
                 }
             }
-
+            System.debug(commits.size());
             if(!commits.isEmpty()){
                 for(CommitClass commitClass : commits){
                     Git_Hub_Webhook__c webhook = new Git_Hub_Webhook__c();
@@ -41,7 +47,7 @@ global with sharing class WebhookDemo {
                     webhooks.add(webhook);
                 }
             }
-
+            System.debug(webhooks.size());
             if(!webhooks.isEmpty()){
                 insert webhooks;
             }
