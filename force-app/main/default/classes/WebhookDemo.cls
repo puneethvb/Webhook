@@ -29,7 +29,8 @@ global with sharing class WebhookDemo {
                     //system.debug('next token: '+parser.nextToken());
                     if(parser.nextToken()==JSONToken.START_ARRAY){
                         System.debug('inside start array');
-                        while(parser.nextToken()!=null){
+                        while(parser.nextToken()!= JSONToken.END_ARRAY){
+                            system.debug('current token '+parser.getCurrentToken());
                             if(parser.getCurrentToken()== JSONToken.START_OBJECT){
                                 System.debug('inside Start Object');
                                 commits.add((CommitClass)parser.readValueAs(CommitClass.class)) ;
