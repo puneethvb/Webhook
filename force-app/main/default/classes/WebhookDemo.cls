@@ -33,6 +33,7 @@ global with sharing class WebhookDemo {
                             if(parser.getCurrentToken()== JSONToken.START_OBJECT){
                                 System.debug('inside Start Object');
                                 commits.add((CommitClass)parser.readValueAs(CommitClass.class)) ;
+                                parser.skipChildren();
                             }
                         }
                     }
