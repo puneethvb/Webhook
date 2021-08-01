@@ -25,8 +25,8 @@ global with sharing class WebhookDemo {
                 }
                 if(parser.getCurrentToken()==JSONToken.FIELD_NAME && parser.getText()=='commits'){
                     System.debug('inside commits');
-                    parser.nextToken();
-                    system.debug('next token: '+parser.nextToken());
+                    //System.debug(parser.nextToken());
+                    //system.debug('next token: '+parser.nextToken());
                     if(parser.nextToken()==JSONToken.START_ARRAY){
                         System.debug('inside start array');
                         while(parser.nextToken()!=null){
