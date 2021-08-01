@@ -12,7 +12,7 @@ global with sharing class WebhookDemo {
             String repoName;
             List<Git_Hub_Webhook__c> webhooks = new List<Git_Hub_Webhook__c>();
             String incomingHashValue = request.headers.get('X-Hub-Signature-256');
-            Blob hmac = Crypto.generateMac('hmacSHA256',request.requestBody,Blob.valueOf('puneethswebhook1'));
+            Blob hmac = Crypto.generateMac('hmacSHA256',request.requestBody,Blob.valueOf('puneethswebhook'));
             String hmacHex = 'sha256='+EncodingUtil.convertToHex(hmac);
             system.debug(hmacHex);
             system.debug(incomingHashValue);
