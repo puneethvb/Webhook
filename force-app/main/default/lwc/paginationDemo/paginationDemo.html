@@ -1,0 +1,17 @@
+<template>
+
+    <lightning-card title="Pagination Example">
+        <div class="slds-var-m-around_medium">
+            <template if:true={currentPage}>
+                <template for:each={currentPage} for:item="item">
+                    <p key={item.Id}>{item.Id}-- {item.Name}</p>
+                </template>
+            </template>
+        </div>
+        <div slot="footer">
+            <c-pagination records={contacts} onupdate={handleUpdate}></c-pagination>
+        </div>
+    </lightning-card>
+    
+</template>
+

@@ -1,0 +1,14 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item flexibility="grow">
+            <lightning-button label="previous" icon-name="utility:chevronleft" onclick={handlePrevious} disabled={disablePrev}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item>
+           <p class="slds-text-align_center">Displaying ___ of ___</p> 
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="grow">
+            <lightning-button label="next" icon-name="utility:chevronright" icon-position="right" onclick={handleNext} disabled={disableNext}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+    
+</template>
