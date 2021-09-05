@@ -1,0 +1,18 @@
+<template>
+    <template if:true={show}>
+        <template for:each={processedMap} for:item="item">
+            <div key={item.key} class="slds-var-m-around_medium">
+                {item.key}
+                <template for:each={item.value} for:item="elem">
+                    <p key={elem}>{elem.description}<br/></p>
+                    <template if:true={elem.recallLink}>
+                        <a key={elem} href={elem.recallLink}>More Info</a> 
+                    </template>
+                                   
+                </template>
+            </div>
+        </template>
+        
+    </template>
+
+</template>

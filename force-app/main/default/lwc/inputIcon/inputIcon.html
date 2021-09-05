@@ -1,9 +1,14 @@
 <template>
     <lightning-card title="Lightning Input with Icons">
         <div class="slds-var-p-around_medium">
-            <lightning-icon icon-name="utility:connected_apps" alternative-text="Connected" size="xx-small" title="large size"></lightning-icon>
-            <lightning-input type="text" label="Enter some text" placeholder="type here..."></lightning-input>
-            
+            <div class="slds-is-relative">
+                <lightning-icon class="icon left" icon-name="utility:connected_apps" alternative-text="Connected" size="xx-small" title="large size"></lightning-icon>
+                <lightning-input type="text" label="Enter some text" placeholder="type here..." class="left"></lightning-input>
+            </div>
+            <div class="slds-is-relative">
+                <lightning-icon class="icon right" icon-name={utilityClass} alternative-text="password" size="xx-small" title="large size" onclick={handleClick}></lightning-icon>
+                <lightning-input type={passwordType} label="Enter Password" class="right"></lightning-input>
+            </div>            
         </div>
     </lightning-card>
     
